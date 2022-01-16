@@ -3,17 +3,19 @@ pipeline {
 
     stages {
 
-        stage('Output') {
+        stage("Output") {
             steps {
                 script {
-                    sh "./gradlew clean"
-                    sh "./gradlew build"
+                    echo "Output"
+                    sh "ls"
                 }
             }
         }
-        stage('Build') {
+        stage("Build") {
             steps {
-                echo 'Building..'
+                echo "Building.."
+                sh "./gradlew clean"
+                sh "./gradlew build"
             }
         }
     }
